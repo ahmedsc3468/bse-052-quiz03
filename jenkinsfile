@@ -1,9 +1,18 @@
 pipeline {
     agent any
+
     stages {
+        stage('Check Python') {
+            steps {
+                echo 'Checking Python installation...'
+                bat 'python --version'
+            }
+        }
+
         stage('Run Python Script') {
             steps {
-                bat 'python script.py'
+                echo 'Running Python script...'
+                bat 'python main.py'
             }
         }
     }
